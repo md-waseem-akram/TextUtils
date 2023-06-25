@@ -25,16 +25,16 @@ export default function TextForm(props) {
 
     return (
         <>
-        <div className="container">
+        <div className="container" style={{color : props.mode === 'light' ? 'dark' : 'light'}}>
             <h1>{props.heading}</h1>
             <div className="mb-3">
-                <textarea className="form-control" rows="8" value={text} onChange={handleOnChange}></textarea>
+                <textarea className="form-control" rows="8" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode === 'light'?'dark':'light'}}></textarea>
             </div>
             <button className="btn btn-primary" onClick={handleOnClickToUpper}>Convert to Uppercase</button>
             <button className="btn btn-primary mx-1" onClick={handleOnClickToLower}>Convert to Lowercase</button>
             <button className="btn btn-primary mx-1" onClick={handleOnClickToClear}>Clear Text</button>
         </div>
-        <div className="container">
+        <div className="container" style={{color : props.mode === 'dark' ? 'light' : 'dark'}}>
             <h1>Your text Summary</h1>
             <p>{text.split(" ").length} words and {text.length} characters </p>
             <p>{0.008*text.split(" ").length} minutes to read</p>
