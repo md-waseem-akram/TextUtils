@@ -46,7 +46,7 @@ function App() {
         <Alerts alert={alert} />
         <div className="container">
           <Routes>
-            <Route exact path="/about" element={<About/>}></Route>            
+            <Route exact path="/about" element={<About mode={mode}/>}></Route>            
             <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Wrtie any Words or Sentence below to Convert" mode={mode} />}></Route>            
           </Routes>
         </div>   

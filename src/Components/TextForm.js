@@ -29,15 +29,15 @@ export default function TextForm(props) {
         <div className="container" style={{color : props.mode === 'light' ? 'black' : 'white'}}>
             <h1>{props.heading}</h1>
             <div className="mb-3">
-                <textarea className="form-control" rows="8" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode === 'light'?'dark':'light'}}></textarea>
+                <textarea className="form-control" rows="8" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode === 'light'?'white':'black', color : props.mode === 'light' ? 'black' : 'white'}}></textarea>
             </div>
-            <button className="btn btn-primary" onClick={handleOnClickToUpper}>Convert to Uppercase</button>
-            <button className="btn btn-primary mx-1" onClick={handleOnClickToLower}>Convert to Lowercase</button>
-            <button className="btn btn-primary mx-1" onClick={handleOnClickToClear}>Clear Text</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleOnClickToUpper}>Convert to Uppercase</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleOnClickToLower}>Convert to Lowercase</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleOnClickToClear}>Clear Text</button>
         </div>
         <div className="container" style={{color : props.mode === 'dark' ? 'white' : 'black'}}>
             <h1>Your text Summary</h1>
-            <p>{text.split(" ").length} words and {text.length} characters </p>
+            <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters </p>
             <p>{0.008*text.split(" ").length} minutes to read</p>
             
         </div>
